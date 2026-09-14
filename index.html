@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawVita | Veterinary Care, Reimagined</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* Specific Styles for Index */
+        .hero-section {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            background-color: var(--pv-primary);
+            position: relative;
+            padding-top: 116px;
+            color: var(--pv-white);
+        }
+        .hero-content h1 {
+            color: var(--pv-white);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+        .floating-card {
+            background: var(--theme-surface);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            color: var(--theme-text);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--theme-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pv-accent);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .feature-block {
+            text-align: center;
+            padding: 2rem;
+        }
+        .timeline-wrapper {
+            position: relative;
+            padding: 3rem 0;
+        }
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+        }
+        .timeline-number {
+            width: 50px;
+            height: 50px;
+            background: var(--pv-primary);
+            color: var(--pv-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+        .timeline-line {
+            position: absolute;
+            top: calc(3rem + 25px);
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--theme-border);
+            z-index: 0;
+        }
+        .vet-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+        }
+        .department-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            height: 200px;
+        }
+        .department-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .department-card:hover img {
+            transform: scale(1.1);
+        }
+        .department-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background-color: var(--pv-primary);
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        .department-card:hover .department-label {
+            transform: translateY(0);
+        }
+        .cta-section {
+            background-color: var(--pv-primary);
+            color: white;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: white;
+        }
+
+        footer {
+            background-color: var(--theme-surface);
+            color: var(--theme-text);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid var(--theme-border);
+        }
+        footer a {
+            color: var(--theme-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--pv-accent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" class="me-2" style="vertical-align: middle;">
+  <path fill="var(--pv-accent)" d="M226.5 92.9c14.3 7.3 22.8 23 20.9 39.3l-5.6 48.7c-2 17.5-16.1 31.8-33.5 34.6l-50.5 7.9c-16 2.5-31.9-5-40-19.1l-24.9-43.2c-8-13.8-5.3-31.5 6.6-42.3L157 68.3c10-9.1 24.6-11.2 36.8-5.1l32.7 19.7zM285.5 92.9l32.7-19.7c12.2-6.1 26.8-4 36.8 5.1l57.5 50.5c11.9 10.8 14.6 28.5 6.6 42.3l-24.9 43.2c-8.1 14.1-24 21.6-40 19.1l-50.5-7.9c-17.4-2.8-31.5-17.1-33.5-34.6l-5.6-48.7c-1.9-16.3 6.6-32 20.9-39.3zm193.3 118.8l-24.9-43.2c-8.1-14.1-24-21.6-40-19.1l-50.5 7.9c-17.4 2.8-31.5 17.1-33.5 34.6l-5.6 48.7c-1.9 16.3 6.6 32 20.9 39.3l32.7 19.7c12.2 6.1 26.8 4 36.8-5.1l57.5-50.5c11.9-10.8 14.6-28.5 6.6-42.3zm-399.7-43.2l-24.9 43.2c-8 13.8-5.3 31.5 6.6 42.3l57.5 50.5c10 9.1 24.6 11.2 36.8 5.1l32.7-19.7c14.3-7.3 22.8-23 20.9-39.3l-5.6-48.7c-2-17.5-16.1-31.8-33.5-34.6l-50.5-7.9c-16-2.5-31.9 5-40 19.1zM256 224c-15.5 0-30.8 4.2-43.9 12.1L124.9 288c-14.3 8.3-23.7 23-25.1 39.5l-8.6 100.9c-1.7 20.1 12.9 37.8 33 39.5s37.8-12.9 39.5-33l7.3-86.4 56.6 23.3c7.5 3.1 15.9 3.1 23.5 0l56.6-23.3 7.3 86.4c1.7 20.1 19.4 34.7 39.5 33s34.7-19.4 33-39.5l-8.6-100.9c-1.4-16.5-10.8-31.2-25.1-39.5L299.9 236.1C286.8 228.2 271.5 224 256 224z"/>
+</svg> PawVita
+            </a>
+            <div class="d-flex align-items-center order-xl-last ms-auto gap-3">
+                <button class="btn btn-link text-decoration-none p-0" id="themeToggle" style="color: var(--theme-text);">
+                    <i class="fas fa-moon fs-5"></i>
+                </button>
+                <a href="booking.html" class="btn-primary-custom d-none d-xl-block">Book Appointment</a>
+                <button class="navbar-toggler border-0 shadow-none p-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars fs-3" style="color: var(--theme-text);"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-xl-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-care.html">Pet Care</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="d-xl-none mt-3 mb-2">
+                    <a href="booking.html" class="btn-primary-custom w-100 d-block text-center rounded-pill py-2">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content reveal fade-up">
+                    <span class="text-uppercase fw-bold mb-3 d-block" style="letter-spacing: 2px; color: var(--pv-accent);">Veterinary Care, Reimagined</span>
+                    <h1 class="mb-4">Because Every Paw Deserves a Healthier Tomorrow.</h1>
+                    <p class="lead mb-5" style="color: rgba(255,255,255,0.9); max-width: 600px;">Thoughtful veterinary care, advanced treatment, and lifelong wellness for the companions who mean the most.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="contact.html" class="btn-primary-custom">Book an Appointment</a>
+                        <a href="services.html" class="btn-accent-custom" style="background: transparent;">Explore Our Services</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="floating-card ms-lg-auto text-center" style="max-width: 250px;">
+                        <i class="fas fa-heartbeat fs-1 mb-3" style="color: var(--pv-accent);"></i>
+                        <h4 style="color: var(--theme-heading); font-size: 1.25rem;">Trusted by Pet Families</h4>
+                        <p class="mb-0 fw-bold" style="color: var(--theme-text); font-size: 1.5rem;">12K+ Healthy Companions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Intro/About -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 reveal slide-left">
+                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Veterinarian examining dog" class="img-fluid rounded-4 shadow-lg w-75 mx-auto d-block" style="max-height: 400px; object-fit: cover; object-position: center;">
+                </div>
+                <div class="col-lg-6 reveal slide-right delay-200">
+                    <span class="section-subtitle">Our Philosophy</span>
+                    <h2 class="section-title">More Than Veterinary Care. A Lifelong Partnership.</h2>
+                    <p class="mb-4">We believe in providing compassionate, comprehensive care that evolves with your pet. From their first wellness check to their senior years, we are dedicated to ensuring they live their healthiest, happiest life.</p>
+                    <div class="d-flex align-items-center gap-4 mt-5">
+                        <h3 class="display-4 fw-bold mb-0" style="color: var(--pv-accent);">15+</h3>
+                        <p class="mb-0 fw-medium fs-5" style="line-height: 1.2;">Years of Compassionate<br>Veterinary Care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Services -->
+    <section class="section-padding" style="background-color: var(--theme-surface);">
+        <div class="container">
+            <div class="text-center mb-5 reveal fade-up">
+                <span class="section-subtitle">Our Services</span>
+                <h2 class="section-title">Complete Care for Every Stage of Life.</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4 reveal fade-up">
+                    <div class="custom-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-stethoscope"></i></div>
+                        <h4>Preventive Care</h4>
+                        <p>Comprehensive wellness exams tailored to your pet's specific age, breed, and lifestyle.</p>
+                        <a href="services.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal slide-left delay-100">
+                    <div class="custom-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-syringe"></i></div>
+                        <h4>Vaccinations</h4>
+                        <p>Essential immunizations to protect your pet from common and dangerous diseases.</p>
+                        <a href="services.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal scale-in delay-200">
+                    <div class="custom-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-tooth"></i></div>
+                        <h4>Dental Care</h4>
+                        <p>Professional dental cleanings and treatments to maintain oral health and prevent disease.</p>
+                        <a href="services.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal slide-right delay-100">
+                    <div class="custom-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-procedures"></i></div>
+                        <h4>Surgery</h4>
+                        <p>Advanced surgical procedures performed with the highest standard of safety and care.</p>
+                        <a href="services.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal fade-up delay-300">
+                    <div class="custom-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-x-ray"></i></div>
+                        <h4>Diagnostic Imaging</h4>
+                        <p>State-of-the-art digital X-rays and ultrasound for accurate, swift diagnoses.</p>
+                        <a href="services.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal scale-in delay-100">
+                    <div class="custom-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-truck-medical"></i></div>
+                        <h4>Emergency Care</h4>
+                        <p>Rapid response and critical care when your companion needs it most.</p>
+                        <a href="services.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Why PawVita -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal fade-down">
+                <span class="section-subtitle">Why Choose Us</span>
+                <h2 class="section-title">Care Built Around Their Comfort.</h2>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 reveal slide-up delay-100">
+                    <div class="feature-block">
+                        <i class="fas fa-hand-holding-heart fs-1 mb-4" style="color: var(--pv-accent);"></i>
+                        <h5>Gentle Approach</h5>
+                        <p class="text-muted">Fear-free techniques to ensure a stress-free visit.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal slide-up delay-200">
+                    <div class="feature-block">
+                        <i class="fas fa-microscope fs-1 mb-4" style="color: var(--pv-accent);"></i>
+                        <h5>Advanced Technology</h5>
+                        <p class="text-muted">State-of-the-art diagnostic and surgical equipment.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal slide-up delay-300">
+                    <div class="feature-block">
+                        <i class="fas fa-user-md fs-1 mb-4" style="color: var(--pv-accent);"></i>
+                        <h5>Experienced Vets</h5>
+                        <p class="text-muted">A dedicated team of specialists and caring professionals.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal slide-up delay-400">
+                    <div class="feature-block">
+                        <i class="fas fa-clipboard-list fs-1 mb-4" style="color: var(--pv-accent);"></i>
+                        <h5>Personalized Treatment</h5>
+                        <p class="text-muted">Custom care plans based on your pet's unique needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Pet Wellness Journey -->
+    <section class="section-padding" style="background-color: var(--theme-surface);">
+        <div class="container text-center">
+            <span class="section-subtitle reveal fade-up">The Process</span>
+            <h2 class="section-title reveal fade-up delay-100 mb-5">Pet Wellness Journey</h2>
+            <div class="timeline-wrapper">
+                <div class="timeline-line d-none d-md-block"></div>
+                <div class="row g-4 position-relative">
+                    <div class="col-12 col-md-3 timeline-step reveal scale-in delay-100">
+                        <div class="timeline-number">01</div>
+                        <h5>First Visit</h5>
+                        <p class="text-muted small">Comprehensive introductory exam and consultation.</p>
+                    </div>
+                    <div class="col-12 col-md-3 timeline-step reveal scale-in delay-200">
+                        <div class="timeline-number">02</div>
+                        <h5>Health Assessment</h5>
+                        <p class="text-muted small">Baseline diagnostics and detailed health review.</p>
+                    </div>
+                    <div class="col-12 col-md-3 timeline-step reveal scale-in delay-300">
+                        <div class="timeline-number">03</div>
+                        <h5>Personalized Care</h5>
+                        <p class="text-muted small">Creating a tailored preventative health plan.</p>
+                    </div>
+                    <div class="col-12 col-md-3 timeline-step reveal scale-in delay-400">
+                        <div class="timeline-number">04</div>
+                        <h5>Ongoing Wellness</h5>
+                        <p class="text-muted small">Regular check-ups and continuous support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Meet Our Veterinarians -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal fade-up">
+                <span class="section-subtitle">Our Team</span>
+                <h2 class="section-title">Meet Our Veterinarians</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal slide-left">
+                    <div class="custom-card p-0 overflow-hidden text-center vet-card border-0">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80" alt="Dr. Olivia Carter">
+                        <div class="p-4" style="background-color: var(--theme-surface); color: var(--theme-text);">
+                            <h5 class="mb-1 fw-bold">Dr. Olivia Carter</h5>
+                            <p class="text-muted small mb-3">Chief Veterinarian</p>
+                            <a href="doctors.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal slide-up delay-100">
+                    <div class="custom-card p-0 overflow-hidden text-center vet-card border-0">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=500&q=80" alt="Dr. Ethan Brooks">
+                        <div class="p-4" style="background-color: var(--theme-surface); color: var(--theme-text);">
+                            <h5 class="mb-1 fw-bold">Dr. Ethan Brooks</h5>
+                            <p class="text-muted small mb-3">Surgical Specialist</p>
+                            <a href="doctors.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal slide-up delay-200">
+                    <div class="custom-card p-0 overflow-hidden text-center vet-card border-0">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Dr. Maya Bennett">
+                        <div class="p-4" style="background-color: var(--theme-surface); color: var(--theme-text);">
+                            <h5 class="mb-1 fw-bold">Dr. Maya Bennett</h5>
+                            <p class="text-muted small mb-3">Wellness Specialist</p>
+                            <a href="doctors.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal slide-right delay-300">
+                    <div class="custom-card p-0 overflow-hidden text-center vet-card border-0">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=500&q=80" alt="Dr. Noah Wilson">
+                        <div class="p-4" style="background-color: var(--theme-surface); color: var(--theme-text);">
+                            <h5 class="mb-1 fw-bold">Dr. Noah Wilson</h5>
+                            <p class="text-muted small mb-3">Emergency Care</p>
+                            <a href="doctors.html" class="text-decoration-none fw-medium" style="color: var(--pv-accent);">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Pet Departments -->
+    <section class="section-padding" style="background-color: var(--theme-surface);">
+        <div class="container text-center mb-5 reveal fade-down">
+            <span class="section-subtitle">Specialized Care</span>
+            <h2 class="section-title">Departments</h2>
+        </div>
+        <div class="container-fluid px-4">
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-2 reveal fade-up delay-100">
+                    <div class="department-card">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=400&q=80" alt="Dogs">
+                        <div class="department-label">Dogs</div>
+                        <a href="departments.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal fade-up delay-200">
+                    <div class="department-card">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=400&q=80" alt="Cats">
+                        <div class="department-label">Cats</div>
+                        <a href="departments.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal fade-up delay-300">
+                    <div class="department-card">
+                        <img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=400&q=80" alt="Birds">
+                        <div class="department-label">Birds</div>
+                        <a href="departments.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal fade-up delay-400">
+                    <div class="department-card">
+                        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=400&q=80" alt="Rabbits">
+                        <div class="department-label">Rabbits</div>
+                        <a href="departments.html" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal fade-up delay-500">
+                    <div class="department-card">
+                        <img src="https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?auto=format&fit=crop&w=400&q=80" alt="Exotic Pets">
+                        <div class="department-label">Exotic</div>
+                        <a href="departments.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Advanced Care -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-lg-2 reveal scale-in">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" alt="Veterinary Technology" class="img-fluid rounded-4 shadow-lg w-75 mx-auto d-block">
+                </div>
+                <div class="col-lg-6 order-lg-1 reveal slide-right delay-200">
+                    <span class="section-subtitle">Innovation</span>
+                    <h2 class="section-title">Modern Technology.<br>Gentler Treatment.</h2>
+                    <p class="mb-4">We utilize state-of-the-art diagnostic and surgical equipment to provide accurate diagnoses and minimally invasive treatments for your pets.</p>
+                    <ul class="list-unstyled mt-4 d-flex flex-column gap-3">
+                        <li class="d-flex align-items-center gap-3 reveal fade-up delay-300">
+                            <i class="fas fa-check-circle fs-4" style="color: var(--pv-accent);"></i>
+                            <span class="fw-medium fs-5">Digital X-Ray & Ultrasound</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 reveal fade-up delay-400">
+                            <i class="fas fa-check-circle fs-4" style="color: var(--pv-accent);"></i>
+                            <span class="fw-medium fs-5">In-House Laboratory Diagnostics</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 reveal fade-up delay-500">
+                            <i class="fas fa-check-circle fs-4" style="color: var(--pv-accent);"></i>
+                            <span class="fw-medium fs-5">Advanced Surgical Technology</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Testimonials -->
+    <section class="section-padding" style="background-color: var(--pv-dark); color: var(--pv-white);">
+        <div class="container">
+            <div class="text-center mb-5 reveal fade-down">
+                <span class="section-subtitle" style="color: var(--pv-secondary);">Testimonials</span>
+                <h2 class="section-title" style="color: var(--pv-white);">Loved by Pets. Trusted by Families.</h2>
+            </div>
+            <div id="testimonialCarousel" class="carousel slide reveal fade-up delay-200" data-bs-ride="carousel">
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active">
+                        <i class="fas fa-quote-left fs-1 mb-4" style="color: var(--pv-accent); opacity: 0.5;"></i>
+                        <h4 class="fw-light fst-italic w-75 mx-auto mb-4" style="line-height: 1.8; color: var(--pv-white) !important;">"The care PawVita provided for our Golden Retriever, Max, was exceptional. The staff was incredibly gentle and the facility is top-notch."</h4>
+                        <div class="d-flex justify-content-center align-items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=100&q=80" alt="Sarah" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div class="text-start">
+                                <h6 class="mb-0 fw-bold" style="color: var(--pv-white) !important;">Sarah & Max</h6>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <i class="fas fa-quote-left fs-1 mb-4" style="color: var(--pv-accent); opacity: 0.5;"></i>
+                        <h4 class="fw-light fst-italic w-75 mx-auto mb-4" style="line-height: 1.8; color: var(--pv-white) !important;">"I wouldn't trust my cat Luna with anyone else. Dr. Carter is so knowledgeable and clearly loves what she does."</h4>
+                        <div class="d-flex justify-content-center align-items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Michael" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div class="text-start">
+                                <h6 class="mb-0 fw-bold" style="color: var(--pv-white) !important;">Michael & Luna</h6>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 11: FAQ -->
+    <section class="section-padding" style="background-color: var(--theme-surface);">
+        <div class="container">
+            <div class="text-center mb-5 reveal fade-up">
+                <span class="section-subtitle">Common Questions</span>
+                <h2 class="section-title">FAQ</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                        <div class="accordion-item reveal slide-up delay-100" style="background-color: transparent; border-bottom: 1px solid var(--theme-border);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed py-4 bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="color: var(--theme-heading); font-size: 1.1rem;">
+                                    When should my pet have a wellness check?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pb-4" style="color: var(--theme-text);">
+                                    We recommend an annual wellness check for healthy adult pets. Puppies, kittens, and senior pets should be seen more frequently, typically every 6 months.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item reveal slide-up delay-200" style="background-color: transparent; border-bottom: 1px solid var(--theme-border);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed py-4 bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="color: var(--theme-heading); font-size: 1.1rem;">
+                                    What vaccinations does my pet need?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pb-4" style="color: var(--theme-text);">
+                                    Vaccination needs vary based on species, age, and lifestyle. Core vaccines include Rabies and Distemper combinations, but we will tailor a plan specific to your pet.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item reveal slide-up delay-300" style="background-color: transparent; border-bottom: 1px solid var(--theme-border);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed py-4 bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="color: var(--theme-heading); font-size: 1.1rem;">
+                                    Do you treat emergency cases?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pb-4" style="color: var(--theme-text);">
+                                    Yes, we accommodate emergency cases during our regular clinic hours. If an emergency occurs after hours, please refer to our recommended 24/7 emergency centers on the contact page.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item reveal slide-up delay-400" style="background-color: transparent; border-bottom: 1px solid var(--theme-border);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed py-4 bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" style="color: var(--theme-heading); font-size: 1.1rem;">
+                                    Do you treat cats and exotic pets?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body pb-4" style="color: var(--theme-text);">
+                                    Yes, we have specialized departments for dogs, cats, birds, rabbits, and other exotic pets with veterinarians trained in their specific care.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 12: Appointment CTA -->
+    <section class="cta-section section-padding">
+        <div class="container reveal scale-in text-center">
+            <h2 class="mb-3 display-5 fw-bold text-center">Your Pet's Next Healthy Chapter Starts Here.</h2>
+            <p class="lead mb-5 text-center mx-auto">Give your companion the care they deserve.</p>
+            <div class="text-center">
+                <a href="booking.html" class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold" style="color: var(--pv-primary);">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 reveal fade-up">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand mb-3 d-inline-block" style="color: var(--theme-heading);" href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" class="me-2" style="vertical-align: middle;">
+  <path fill="var(--pv-accent)" d="M226.5 92.9c14.3 7.3 22.8 23 20.9 39.3l-5.6 48.7c-2 17.5-16.1 31.8-33.5 34.6l-50.5 7.9c-16 2.5-31.9-5-40-19.1l-24.9-43.2c-8-13.8-5.3-31.5 6.6-42.3L157 68.3c10-9.1 24.6-11.2 36.8-5.1l32.7 19.7zM285.5 92.9l32.7-19.7c12.2-6.1 26.8-4 36.8 5.1l57.5 50.5c11.9 10.8 14.6 28.5 6.6 42.3l-24.9 43.2c-8.1 14.1-24 21.6-40 19.1l-50.5-7.9c-17.4-2.8-31.5-17.1-33.5-34.6l-5.6-48.7c-1.9-16.3 6.6-32 20.9-39.3zm193.3 118.8l-24.9-43.2c-8.1-14.1-24-21.6-40-19.1l-50.5 7.9c-17.4 2.8-31.5 17.1-33.5 34.6l-5.6 48.7c-1.9 16.3 6.6 32 20.9 39.3l32.7 19.7c12.2 6.1 26.8 4 36.8-5.1l57.5-50.5c11.9-10.8 14.6-28.5 6.6-42.3zm-399.7-43.2l-24.9 43.2c-8 13.8-5.3 31.5 6.6 42.3l57.5 50.5c10 9.1 24.6 11.2 36.8 5.1l32.7-19.7c14.3-7.3 22.8-23 20.9-39.3l-5.6-48.7c-2-17.5-16.1-31.8-33.5-34.6l-50.5-7.9c-16-2.5-31.9 5-40 19.1zM256 224c-15.5 0-30.8 4.2-43.9 12.1L124.9 288c-14.3 8.3-23.7 23-25.1 39.5l-8.6 100.9c-1.7 20.1 12.9 37.8 33 39.5s37.8-12.9 39.5-33l7.3-86.4 56.6 23.3c7.5 3.1 15.9 3.1 23.5 0l56.6-23.3 7.3 86.4c1.7 20.1 19.4 34.7 39.5 33s34.7-19.4 33-39.5l-8.6-100.9c-1.4-16.5-10.8-31.2-25.1-39.5L299.9 236.1C286.8 228.2 271.5 224 256 224z"/>
+</svg> PawVita
+                    </a>
+                    <p class="mb-4 text-muted">Compassionate Care for Every Paw. Thoughtful veterinary care, advanced treatment, and lifelong wellness for the companions who mean the most.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="fs-4"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="fw-bold mb-4">Departments</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="departments.html">Dogs</a></li>
+                        <li><a href="departments.html">Cats</a></li>
+                        <li><a href="departments.html">Birds</a></li>
+                        <li><a href="departments.html">Exotic Pets</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="fw-bold mb-4">Newsletter</h5>
+                    <p class="text-muted">Subscribe for pet care tips and clinic updates.</p>
+                    <form class="d-flex mt-3">
+                        <input type="email" class="form-control rounded-pill rounded-end-0 border-0 shadow-none px-4" placeholder="Email Address">
+                        <button class="btn btn-accent-custom rounded-pill rounded-start-0 px-4 m-0" type="submit" style="min-width: 120px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4" style="border-color: var(--theme-border);">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-muted small">
+                <small>&copy; 2026 PawVita Veterinary Care. All rights reserved.</small>
+                <a href="#" class="btn rounded-circle mt-3 mt-md-0" style="background-color: var(--theme-surface); color: var(--theme-text); border: 1px solid var(--theme-border); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.3s ease;" title="Back to Top" onmouseover="this.style.backgroundColor='var(--theme-border)'" onmouseout="this.style.backgroundColor='var(--theme-surface)'">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

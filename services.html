@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | PawVita Veterinary Care</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .page-hero {
+            padding: 156px 0 80px;
+            background-color: var(--pv-primary);
+            color: var(--pv-white);
+            text-align: center;
+        }
+        .service-detail-card {
+            background-color: var(--theme-surface);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--theme-shadow);
+            margin-bottom: 3rem;
+            border: 1px solid var(--theme-border);
+        }
+        .service-detail-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+        }
+        .cta-section {
+            background: linear-gradient(rgba(74, 35, 90, 0.8), rgba(74, 35, 90, 0.8)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            color: white;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: white;
+        }
+
+        footer {
+            background-color: var(--theme-surface);
+            color: var(--theme-text);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid var(--theme-border);
+        }
+        footer a {
+            color: var(--theme-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--pv-accent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" class="me-2" style="vertical-align: middle;">
+  <path fill="var(--pv-accent)" d="M226.5 92.9c14.3 7.3 22.8 23 20.9 39.3l-5.6 48.7c-2 17.5-16.1 31.8-33.5 34.6l-50.5 7.9c-16 2.5-31.9-5-40-19.1l-24.9-43.2c-8-13.8-5.3-31.5 6.6-42.3L157 68.3c10-9.1 24.6-11.2 36.8-5.1l32.7 19.7zM285.5 92.9l32.7-19.7c12.2-6.1 26.8-4 36.8 5.1l57.5 50.5c11.9 10.8 14.6 28.5 6.6 42.3l-24.9 43.2c-8.1 14.1-24 21.6-40 19.1l-50.5-7.9c-17.4-2.8-31.5-17.1-33.5-34.6l-5.6-48.7c-1.9-16.3 6.6-32 20.9-39.3zm193.3 118.8l-24.9-43.2c-8.1-14.1-24-21.6-40-19.1l-50.5 7.9c-17.4 2.8-31.5 17.1-33.5 34.6l-5.6 48.7c-1.9 16.3 6.6 32 20.9 39.3l32.7 19.7c12.2 6.1 26.8 4 36.8-5.1l57.5-50.5c11.9-10.8 14.6-28.5 6.6-42.3zm-399.7-43.2l-24.9 43.2c-8 13.8-5.3 31.5 6.6 42.3l57.5 50.5c10 9.1 24.6 11.2 36.8 5.1l32.7-19.7c14.3-7.3 22.8-23 20.9-39.3l-5.6-48.7c-2-17.5-16.1-31.8-33.5-34.6l-50.5-7.9c-16-2.5-31.9 5-40 19.1zM256 224c-15.5 0-30.8 4.2-43.9 12.1L124.9 288c-14.3 8.3-23.7 23-25.1 39.5l-8.6 100.9c-1.7 20.1 12.9 37.8 33 39.5s37.8-12.9 39.5-33l7.3-86.4 56.6 23.3c7.5 3.1 15.9 3.1 23.5 0l56.6-23.3 7.3 86.4c1.7 20.1 19.4 34.7 39.5 33s34.7-19.4 33-39.5l-8.6-100.9c-1.4-16.5-10.8-31.2-25.1-39.5L299.9 236.1C286.8 228.2 271.5 224 256 224z"/>
+</svg> PawVita
+            </a>
+            <div class="d-flex align-items-center order-xl-last ms-auto gap-3">
+                <button class="btn btn-link text-decoration-none p-0" id="themeToggle" style="color: var(--theme-text);">
+                    <i class="fas fa-moon fs-5"></i>
+                </button>
+                <a href="booking.html" class="btn-primary-custom d-none d-xl-block">Book Appointment</a>
+                <button class="navbar-toggler border-0 shadow-none p-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars fs-3" style="color: var(--theme-text);"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-xl-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-care.html">Pet Care</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="d-xl-none mt-3 mb-2">
+                    <a href="booking.html" class="btn-primary-custom w-100 d-block text-center rounded-pill py-2">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero reveal fade-up">
+        <div class="container">
+            <h1 class="display-4 mb-3" style="color: var(--pv-white);">Complete Veterinary Care Under One Roof.</h1>
+            <p class="lead" style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto;">From routine wellness exams to advanced surgical procedures, we provide comprehensive services tailored to your pet's needs.</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section-padding">
+        <div class="container">
+            
+            <!-- Service 1 & 2 -->
+            <div class="row g-4">
+                <div class="col-lg-6 reveal slide-left">
+                    <div class="service-detail-card overflow-hidden h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-sm-5">
+                                <img src="assets/images/service_preventive.jpg" alt="Preventive Care" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="p-4 d-flex flex-column justify-content-center h-100">
+                                    <i class="fas fa-stethoscope fs-2 mb-3" style="color: var(--pv-accent);"></i>
+                                    <h4 class="mb-3" style="color: var(--theme-heading); font-family: var(--font-heading);">Preventive Care</h4>
+                                    <p class="text-muted small">Routine wellness exams are the foundation of your pet's health. We assess everything from nose to tail to catch potential issues early.</p>
+                                    <ul class="list-unstyled mt-3 text-muted small mb-0">
+                                        <li><i class="fas fa-check text-success me-2"></i> Comprehensive Physical Exams</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Parasite Prevention</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Weight Management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal slide-right delay-200">
+                    <div class="service-detail-card overflow-hidden h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-sm-5">
+                                <img src="assets/images/service_vaccination.jpg" alt="Vaccinations" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="p-4 d-flex flex-column justify-content-center h-100">
+                                    <i class="fas fa-syringe fs-2 mb-3" style="color: var(--pv-accent);"></i>
+                                    <h4 class="mb-3" style="color: var(--theme-heading); font-family: var(--font-heading);">Vaccinations</h4>
+                                    <p class="text-muted small">Keep your pet safe from preventable diseases with our tailored vaccination protocols based on their specific lifestyle and risk factors.</p>
+                                    <ul class="list-unstyled mt-3 text-muted small mb-0">
+                                        <li><i class="fas fa-check text-success me-2"></i> Core Vaccines</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Non-Core Lifestyle Vaccines</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Annual Titer Testing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 & 4 -->
+            <div class="row g-4 mt-2">
+                <div class="col-lg-6 reveal slide-left">
+                    <div class="service-detail-card overflow-hidden h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-sm-5">
+                                <img src="https://images.unsplash.com/photo-1606425271394-c3ca9aa1fc06?auto=format&fit=crop&w=800&q=80" alt="Dental Care" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="p-4 d-flex flex-column justify-content-center h-100">
+                                    <i class="fas fa-tooth fs-2 mb-3" style="color: var(--pv-accent);"></i>
+                                    <h4 class="mb-3" style="color: var(--theme-heading); font-family: var(--font-heading);">Dental Care</h4>
+                                    <p class="text-muted small">Oral health is vital to overall health. We provide professional cleaning, polishing, and oral surgery under the safest anesthetic protocols.</p>
+                                    <ul class="list-unstyled mt-3 text-muted small mb-0">
+                                        <li><i class="fas fa-check text-success me-2"></i> Ultrasonic Scaling & Polishing</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Digital Dental Radiographs</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Extractions & Oral Surgery</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal slide-right delay-200">
+                    <div class="service-detail-card overflow-hidden h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-sm-5">
+                                <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=800&q=80" alt="Surgery" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="p-4 d-flex flex-column justify-content-center h-100">
+                                    <i class="fas fa-scalpel fs-2 mb-3" style="color: var(--pv-accent);"></i>
+                                    <h4 class="mb-3" style="color: var(--theme-heading); font-family: var(--font-heading);">Surgery</h4>
+                                    <p class="text-muted small">From routine spays and neuters to complex soft tissue surgeries, our surgical suite is equipped with advanced monitoring technology.</p>
+                                    <ul class="list-unstyled mt-3 text-muted small mb-0">
+                                        <li><i class="fas fa-check text-success me-2"></i> Spay & Neuter</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Soft Tissue Surgery</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Orthopedic Referrals</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5 & 6 -->
+            <div class="row g-4 mt-2">
+                <div class="col-lg-6 reveal slide-left">
+                    <div class="service-detail-card">
+                        <div class="p-4 p-md-5 text-center">
+                            <i class="fas fa-x-ray fs-1 mb-3" style="color: var(--pv-accent);"></i>
+                            <h3 class="mb-3" style="color: var(--theme-heading); font-family: var(--font-heading);">Diagnostics</h3>
+                            <p class="text-muted">Rapid and accurate diagnosis using our in-house laboratory, digital radiography, and ultrasonography to get answers when you need them.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal slide-right delay-200">
+                    <div class="service-detail-card">
+                        <div class="p-4 p-md-5 text-center">
+                            <i class="fas fa-truck-medical fs-1 mb-3" style="color: var(--pv-accent);"></i>
+                            <h3 class="mb-3" style="color: var(--theme-heading); font-family: var(--font-heading);">Emergency Care</h3>
+                            <p class="text-muted">We provide critical care and urgent support during our normal business hours, with a dedicated team ready for rapid response.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4 mt-2 justify-content-center">
+                <div class="col-lg-8 reveal scale-in">
+                    <div class="service-detail-card text-center">
+                        <div class="p-4 p-md-5">
+                            <i class="fas fa-apple-alt fs-1 mb-3" style="color: var(--pv-accent);"></i>
+                            <h3 class="mb-3" style="color: var(--theme-heading); font-family: var(--font-heading);">Nutrition & Wellness</h3>
+                            <p class="text-muted">Proper diet is preventative medicine. We offer nutritional counseling for all life stages, helping manage weight, allergies, and chronic conditions through specialized diets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Guide / Comparison -->
+    <section class="section-padding" style="background-color: var(--theme-surface);">
+        <div class="container">
+            <div class="text-center mb-5 reveal fade-up">
+                <span class="section-subtitle">Wellness Plans</span>
+                <h2 class="section-title">Care Guide Packages</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5 reveal slide-up delay-100">
+                    <div class="card h-100 p-4 border-0 shadow-sm d-flex flex-column" style="background-color: var(--theme-bg);">
+                        <h4 class="mb-3 fw-bold" style="color: var(--theme-heading);">Essential Care</h4>
+                        <p class="text-muted mb-4">Perfect for healthy adult pets needing their annual checkup.</p>
+                        <h2 class="mb-4" style="color: var(--theme-heading);">$129 <span class="fs-6 text-muted fw-normal">/ year</span></h2>
+                        <ul class="list-unstyled mb-4" style="color: var(--theme-text);">
+                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Annual Physical Exam</li>
+                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Core Vaccinations</li>
+                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Intestinal Parasite Screen</li>
+                            <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Bloodwork Panel</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline-primary w-100 rounded-pill mt-auto" style="border-color: var(--theme-heading); color: var(--theme-heading); border-width: 2px; padding: 0.75rem 2rem; font-weight: 500;">Select Plan</a>
+                    </div>
+                </div>
+                <div class="col-md-5 reveal slide-up delay-200">
+                    <div class="card h-100 p-4 border-0 shadow-lg position-relative d-flex flex-column" style="background-color: var(--pv-primary); color: white;">
+                        <div class="position-absolute top-0 end-0 p-2 me-2 mt-2 badge rounded-pill" style="background-color: var(--pv-accent);">Recommended</div>
+                        <h4 class="mb-3 fw-bold text-white">Comprehensive Care</h4>
+                        <p class="text-white-50 mb-4">Ideal for senior pets or comprehensive baseline testing.</p>
+                        <h2 class="mb-4 text-white">$249 <span class="fs-6 text-white-50 fw-normal">/ year</span></h2>
+                        <ul class="list-unstyled mb-4 text-white">
+                            <li class="mb-3"><i class="fas fa-check text-white me-2"></i> Bi-Annual Physical Exams</li>
+                            <li class="mb-3"><i class="fas fa-check text-white me-2"></i> All Vaccinations</li>
+                            <li class="mb-3"><i class="fas fa-check text-white me-2"></i> Intestinal Parasite Screen</li>
+                            <li class="mb-3"><i class="fas fa-check text-white me-2"></i> Comprehensive Bloodwork</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-accent-custom w-100 mt-auto">Select Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 12: Appointment CTA -->
+    <section class="cta-section section-padding">
+        <div class="container reveal scale-in text-center">
+            <h2 class="mb-3 display-5 fw-bold text-center">Ready to Schedule a Service?</h2>
+            <p class="lead mb-5 text-center mx-auto">Our team is here to help your pet thrive.</p>
+            <div class="text-center">
+                <a href="booking.html" class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold" style="color: var(--pv-primary);">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 reveal fade-up">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand mb-3 d-inline-block" style="color: var(--theme-heading);" href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" class="me-2" style="vertical-align: middle;">
+  <path fill="var(--pv-accent)" d="M226.5 92.9c14.3 7.3 22.8 23 20.9 39.3l-5.6 48.7c-2 17.5-16.1 31.8-33.5 34.6l-50.5 7.9c-16 2.5-31.9-5-40-19.1l-24.9-43.2c-8-13.8-5.3-31.5 6.6-42.3L157 68.3c10-9.1 24.6-11.2 36.8-5.1l32.7 19.7zM285.5 92.9l32.7-19.7c12.2-6.1 26.8-4 36.8 5.1l57.5 50.5c11.9 10.8 14.6 28.5 6.6 42.3l-24.9 43.2c-8.1 14.1-24 21.6-40 19.1l-50.5-7.9c-17.4-2.8-31.5-17.1-33.5-34.6l-5.6-48.7c-1.9-16.3 6.6-32 20.9-39.3zm193.3 118.8l-24.9-43.2c-8.1-14.1-24-21.6-40-19.1l-50.5 7.9c-17.4 2.8-31.5 17.1-33.5 34.6l-5.6 48.7c-1.9 16.3 6.6 32 20.9 39.3l32.7 19.7c12.2 6.1 26.8 4 36.8-5.1l57.5-50.5c11.9-10.8 14.6-28.5 6.6-42.3zm-399.7-43.2l-24.9 43.2c-8 13.8-5.3 31.5 6.6 42.3l57.5 50.5c10 9.1 24.6 11.2 36.8 5.1l32.7-19.7c14.3-7.3 22.8-23 20.9-39.3l-5.6-48.7c-2-17.5-16.1-31.8-33.5-34.6l-50.5-7.9c-16-2.5-31.9 5-40 19.1zM256 224c-15.5 0-30.8 4.2-43.9 12.1L124.9 288c-14.3 8.3-23.7 23-25.1 39.5l-8.6 100.9c-1.7 20.1 12.9 37.8 33 39.5s37.8-12.9 39.5-33l7.3-86.4 56.6 23.3c7.5 3.1 15.9 3.1 23.5 0l56.6-23.3 7.3 86.4c1.7 20.1 19.4 34.7 39.5 33s34.7-19.4 33-39.5l-8.6-100.9c-1.4-16.5-10.8-31.2-25.1-39.5L299.9 236.1C286.8 228.2 271.5 224 256 224z"/>
+</svg> PawVita
+                    </a>
+                    <p class="mb-4 text-muted">Compassionate Care for Every Paw. Thoughtful veterinary care, advanced treatment, and lifelong wellness for the companions who mean the most.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="fs-4"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="fw-bold mb-4">Departments</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="departments.html">Dogs</a></li>
+                        <li><a href="departments.html">Cats</a></li>
+                        <li><a href="departments.html">Birds</a></li>
+                        <li><a href="departments.html">Exotic Pets</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="fw-bold mb-4">Newsletter</h5>
+                    <p class="text-muted">Subscribe for pet care tips and clinic updates.</p>
+                    <form class="d-flex mt-3">
+                        <input type="email" class="form-control rounded-pill rounded-end-0 border-0 shadow-none px-4" placeholder="Email Address">
+                        <button class="btn btn-accent-custom rounded-pill rounded-start-0 px-4 m-0" type="submit" style="min-width: 120px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4" style="border-color: var(--theme-border);">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-muted small">
+                <small>&copy; 2026 PawVita Veterinary Care. All rights reserved.</small>
+                <a href="#" class="btn rounded-circle mt-3 mt-md-0" style="background-color: var(--theme-surface); color: var(--theme-text); border: 1px solid var(--theme-border); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.3s ease;" title="Back to Top" onmouseover="this.style.backgroundColor='var(--theme-border)'" onmouseout="this.style.backgroundColor='var(--theme-surface)'">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
